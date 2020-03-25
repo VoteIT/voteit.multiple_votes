@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="view.macro('arche:templates/base_view.pt', 'arche:templates/inline.pt')"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="voteit.vote_groups">
+<body>
+<div metal:fill-slot="main-content">
+    <h2>${context.title}</h2>
+
+    <a class="btn btn-default btn-sm"
+       tal:condition="view.can_add"
+       href="${request.resource_url(context, 'add', query = {'content_type': 'VoteAssignment'})}"
+       i18n:translate="">Add</a>
+
+    <p tal:condition="context.wf_state == 'open'">
+        It's open
+    </p>
+
+    <p tal:condition="context.wf_state == 'locked'">
+        Locked, no assignments
+    </p>
+
+    <div tal:condition="len(context)" tal:define="assigned_perc view.get_assigned_perc()">
+        <div class="row">
+            <div class="col-sm-6">
+                <span class="glyphicon glyphicon-user"></span>
+                <tal:ts i18n:translate="">Voters:</tal:ts>
+                ${context.total_voters}
+                &mdash;
+                ${context.title}: ${len(context)}
+
+            </div>
+            <div class="col-sm-6">
+                <span class="glyphicon glyphicon-star"></span>
+                <tal:ts i18n:translate="">Votes assigned:</tal:ts>
+                ${context.assigned_votes} / ${context.total_votes}
+                &mdash;
+                ${assigned_perc}%
+
+            </div>
+        </div>
+        <div class="progress">
+            <div class="progress-bar"
+                 role="progressbar"
+                 aria-valuenow="${assigned_perc}"
+                 aria-valuemin="0"
+                 aria-valuemax="100"
+                 style="width: ${assigned_perc}%">
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-condensed">
+            <thead>
+            <tr>
+                <th i18n:translate="">Name</th>
+                <th i18n:translate="">Assigned</th>
+                <th i18n:translate="">Votes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tal:iter repeat="va context.get_sorted_values()">
+                <tr>
+                    <td>
+                        <a tal:omit-tag="not view.can_edit_obj(va)"
+                           href="${request.resource_url(va, 'edit')}">
+                            ${va.title}
+                        </a>
+                    </td>
+
+                    <td tal:condition="va.userid_assigned">
+                        <tal:user replace="structure request.creators_info([va.userid_assigned], portrait=False)"/>
+                    </td>
+                    <td tal:condition="not va.userid_assigned">
+                    </td>
+                    <td>
+                        ${va.votes}
+                    </td>
+                </tr>
+            </tal:iter>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

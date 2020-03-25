@@ -8,6 +8,7 @@ CHANGES = open(os.path.join(here, 'CHANGES.rst')).read()
 
 install_requires = (
     'voteit.core',
+    'voteit.irl',
 )
 
 testing_extras = [
