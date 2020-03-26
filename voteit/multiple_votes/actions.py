@@ -54,3 +54,5 @@ def includeme(config):
         view_name="_activate_multivotes",
     )
     config.add_view_action(multivotes_nav, "nav_meeting", "multivotes")
+    config.add_view_action(multivotes_nav, "control_panel_multivotes", "multivotes_page")
+
