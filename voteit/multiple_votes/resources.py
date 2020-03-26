@@ -25,8 +25,7 @@ from zope.interface import implementer
 from voteit.multiple_votes import _, MEETING_NAMESPACE
 from voteit.multiple_votes.interfaces import IMultiVotes, IVoteAssignment
 from voteit.multiple_votes.permissions import ADD_VOTE_ASSIGNMENT
-from voteit.multiple_votes.utils import check_ongoing_poll
-
+from voteit.multiple_votes.utils import block_during_ongoing_poll
 
 logger = getLogger(__name__)
 
@@ -119,18 +118,6 @@ class VoteAssignment(Base):
     userid_assigned = None
 
 
-@subscriber([IMultiVotes, IWorkflowBeforeTransition])
-def block_during_ongoing_poll(context, event):
-    if check_ongoing_poll(context):
-        raise HTTPForbidden(
-            _(
-                "access_during_ongoing_not_allowed",
-                default="During ongoing polls, this action isn't allowed. "
-                "Try again when polls have closed.",
-            )
-        )
-
-
 @subscriber([IMultiVotes, IWorkflowAfterTransition])
 def update_voters(context, event):
     if event.to_state == 'locked':
@@ -186,4 +173,6 @@ def includeme(config):
     config.add_content_factory(MultiVotes)
     config.set_content_workflow("MultiVotes", "lock_assignment")
     config.add_content_factory(VoteAssignment, addable_to="MultiVotes")
+    config.add_subscriber(block_during_ongoing_poll, [IMultiVotes, IWorkflowBeforeTransition])
+    config.add_subscriber(block_during_ongoing_poll, [IMultiVotes, IObjectAddedEvent])
     config.scan(__name__)

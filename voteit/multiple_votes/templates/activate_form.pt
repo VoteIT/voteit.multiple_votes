@@ -6,10 +6,21 @@
   metal:use-macro="view.macro('arche:templates/master.pt', 'arche:templates/inline.pt')"
   i18n:domain="Arche">
 <tal:content metal:fill-slot="content">
+    <div class="alert alert-danger" role="alert">
+        <strong>
+            <span class="glyphicon glyphicon-warning-sign"></span>
+            <tal:ts i18n:translate="">Warning!</tal:ts>
+        </strong>
+        <tal:ts i18n:translate="very_bad_warning_dog_bites">
+            Bad and unexpected thing will happen if you activate this and don't understand what it does!
+        </tal:ts>
+    </div>
 
-
-    En varning om vad som händer...
-
+    <p><tal:ts i18n:translate="read_readme_first">Read through the README-file before proceeding:</tal:ts>
+        <a href="https://github.com/VoteIT/voteit.multiple_votes/blob/master/README.rst">
+            https://github.com/VoteIT/voteit.multiple_votes/blob/master/README.rst
+        </a>
+    </p>
 <form tal:replace="structure form" />
 </tal:content>
 </html>

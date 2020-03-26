@@ -6,20 +6,34 @@
       i18n:domain="voteit.vote_groups">
 <body>
 <div metal:fill-slot="main-content">
-    <h2>${context.title}</h2>
+    <h2>
+        ${context.title}
+    </h2>
 
-    <a class="btn btn-default btn-sm"
-       tal:condition="view.can_add"
-       href="${request.resource_url(context, 'add', query = {'content_type': 'VoteAssignment'})}"
-       i18n:translate="">Add</a>
+    <tal:moderator condition="request.is_moderator">
+        <p>
+            <a class="btn btn-default btn-sm"
+               tal:condition="view.can_add"
+               href="${request.resource_url(context, 'add', query = {'content_type': 'VoteAssignment'})}">
+                <span class="glyphicon glyphicon-plus"></span>
+                <tal:ts i18n:translate="">Add</tal:ts>
+            </a>
+        </p>
 
-    <p tal:condition="context.wf_state == 'open'">
-        It's open
-    </p>
+        <p tal:condition="context.wf_state == 'open'" class="text-muted">
+            <tal:ts i18n:translate="wf_open_description">
+                Vote assignment open. It's possible to assign users and change things around.
+                No polls can be started until the vote distribution is locked.
+            </tal:ts>
+        </p>
 
-    <p tal:condition="context.wf_state == 'locked'">
-        Locked, no assignments
-    </p>
+        <p tal:condition="context.wf_state == 'locked'" class="text-muted">
+            <tal:ts i18n:translate="wf_locked_description">
+                Vote assignment locked. Polls may be started. If you need to change vote assignments again,
+                you may open the assignment as long as no polls are ongoing.
+            </tal:ts>
+        </p>
+    </tal:moderator>
 
     <div tal:condition="len(context)" tal:define="assigned_perc view.get_assigned_perc()">
         <div class="row">

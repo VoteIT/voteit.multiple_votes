@@ -14,6 +14,7 @@ from voteit.multiple_votes import MEETING_NAMESPACE
 from voteit.multiple_votes.interfaces import IMultiVotes
 from voteit.multiple_votes.interfaces import IVoteAssignment
 from voteit.multiple_votes.permissions import ADD_VOTE_ASSIGNMENT
+from voteit.multiple_votes.utils import block_during_ongoing_poll
 
 
 @view_config(
@@ -59,6 +60,10 @@ class MultiVoteView(BaseView):
 class ActivateMultiVotes(DefaultAddForm):
     title = ""
     type_name = "MultiVotes"
+
+    def __call__(self):
+        block_during_ongoing_poll(self.context)
+        return super(ActivateMultiVotes, self).__call__()
 
     def save_success(self, appstruct):
         del appstruct["confirm"]
