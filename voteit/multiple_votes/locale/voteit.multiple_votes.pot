@@ -1,0 +1,165 @@
+#
+# SOME DESCRIPTIVE TITLE
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE 1.0\n"
+"POT-Creation-Date: 2020-03-26 15:17+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Lingua 4.14\n"
+
+#: ./voteit/multiple_votes/security.py:9
+msgid "Lock assignment workflow"
+msgstr ""
+
+#. description = _("")
+#. 
+#: ./voteit/multiple_votes/security.py:11
+#: ./voteit/multiple_votes/security.py:20
+msgid "Open"
+msgstr ""
+
+#. description = _("")
+#. 
+#: ./voteit/multiple_votes/security.py:11
+#: ./voteit/multiple_votes/security.py:26
+msgid "Locked"
+msgstr ""
+
+#: ./voteit/multiple_votes/security.py:35
+msgid "Lock vote changes"
+msgstr ""
+
+#: ./voteit/multiple_votes/security.py:42
+msgid "Enable vote updates"
+msgstr ""
+
+#: ./voteit/multiple_votes/actions.py:42
+msgid "Multiple votes"
+msgstr ""
+
+#: ./voteit/multiple_votes/actions.py:43
+msgid ""
+"Allow users to have multiple votes. This will change how you're able to "
+"invite users too."
+msgstr ""
+
+#: ./voteit/multiple_votes/actions.py:53
+msgid "Activate..."
+msgstr ""
+
+#: ./voteit/multiple_votes/schemas.py:12
+msgid "Short title, used in navigation too"
+msgstr ""
+
+#. Default: Max 20 chars. Something like 'Organisations' or 'Vote power'.
+#. Basically the reason that someone has several votes.
+#: ./voteit/multiple_votes/schemas.py:13
+msgid "multivotes_schema_title_description"
+msgstr ""
+
+#: ./voteit/multiple_votes/schemas.py:28
+msgid "I understand the consequences of adding this"
+msgstr ""
+
+#: ./voteit/multiple_votes/schemas.py:29
+msgid "Confirmation not clicked"
+msgstr ""
+
+#: ./voteit/multiple_votes/schemas.py:40
+msgid "Name of voting asignment - like the organisation that this represents"
+msgstr ""
+
+#: ./voteit/multiple_votes/schemas.py:46
+msgid "Number of votes"
+msgstr ""
+
+#: ./voteit/multiple_votes/schemas.py:47
+msgid "1-500 is a valid number"
+msgstr ""
+
+#: ./voteit/multiple_votes/schemas.py:53
+msgid "The user assigned"
+msgstr ""
+
+#. Default: During ongoing polls, this action isn't allowed. Try again when
+#. polls have closed.
+#: ./voteit/multiple_votes/utils.py:28
+msgid "access_during_ongoing_not_allowed"
+msgstr ""
+
+#: ./voteit/multiple_votes/resources.py:38
+#: ./voteit/multiple_votes/resources.py:45
+msgid "MultiVotes"
+msgstr ""
+
+#: ./voteit/multiple_votes/resources.py:112
+msgid "Vote Assignment"
+msgstr ""
+
+#: ./voteit/multiple_votes/resources.py:142
+msgid ""
+"You may not start polls unless you've locked the assignment of votes. See "
+"multivotes."
+msgstr ""
+
+#: ./voteit/multiple_votes/templates/multivotes.pt:19
+msgid "Add"
+msgstr ""
+
+#. Default: Vote assignment open. It's possible to assign users and change
+#. things around. No polls can be started until the vote distribution is
+#. locked.
+#: ./voteit/multiple_votes/templates/multivotes.pt:24
+msgid "wf_open_description"
+msgstr ""
+
+#. Default: Vote assignment locked. Polls may be started. If you need to change
+#. vote assignments again, you may open the assignment as long as no polls are
+#. ongoing.
+#: ./voteit/multiple_votes/templates/multivotes.pt:31
+msgid "wf_locked_description"
+msgstr ""
+
+#: ./voteit/multiple_votes/templates/multivotes.pt:42
+msgid "Voters:"
+msgstr ""
+
+#: ./voteit/multiple_votes/templates/multivotes.pt:50
+msgid "Votes assigned:"
+msgstr ""
+
+#: ./voteit/multiple_votes/templates/multivotes.pt:72
+msgid "Name"
+msgstr ""
+
+#: ./voteit/multiple_votes/templates/multivotes.pt:73
+msgid "Assigned"
+msgstr ""
+
+#: ./voteit/multiple_votes/templates/multivotes.pt:74
+msgid "Votes"
+msgstr ""
+
+#: ./voteit/multiple_votes/templates/activate_form.pt:12
+msgid "Warning!"
+msgstr ""
+
+#. Default: Bad and unexpected thing will happen if you activate this and don't
+#. understand what it does!
+#: ./voteit/multiple_votes/templates/activate_form.pt:14
+msgid "very_bad_warning_dog_bites"
+msgstr ""
+
+#. Default: Read through the README-file before proceeding:
+#: ./voteit/multiple_votes/templates/activate_form.pt:19
+msgid "read_readme_first"
+msgstr ""

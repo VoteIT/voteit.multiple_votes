@@ -1,0 +1,177 @@
+#
+# Swedish translations for PACKAGE package
+# This file is distributed under the same license as the PACKAGE package.
+# Robin Harms Oredsson <robin@betahaus.net>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE 1.0\n"
+"POT-Creation-Date: 2020-03-26 15:17+0100\n"
+"PO-Revision-Date: 2020-03-26 15:34+0100\n"
+"Last-Translator: Robin Harms Oredsson <robin@betahaus.net>\n"
+"Language-Team: Swedish\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Lingua 4.14\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.3\n"
+
+#: voteit/multiple_votes/security.py:9
+msgid "Lock assignment workflow"
+msgstr "Låst tilldelning-arbetsflöde"
+
+#. description = _("")
+#.
+#: voteit/multiple_votes/security.py:11 voteit/multiple_votes/security.py:20
+msgid "Open"
+msgstr "Öppen"
+
+#. description = _("")
+#.
+#: voteit/multiple_votes/security.py:11 voteit/multiple_votes/security.py:26
+msgid "Locked"
+msgstr "Låst"
+
+#: voteit/multiple_votes/security.py:35
+msgid "Lock vote changes"
+msgstr "Lås rösträtt"
+
+#: voteit/multiple_votes/security.py:42
+msgid "Enable vote updates"
+msgstr "Tillåt röständringar"
+
+#: voteit/multiple_votes/actions.py:42
+msgid "Multiple votes"
+msgstr "Flera röster"
+
+#: voteit/multiple_votes/actions.py:43
+msgid ""
+"Allow users to have multiple votes. This will change how you're able to "
+"invite users too."
+msgstr ""
+"Tillåt användare att ha många röster. Detta ändrar hur du kan bjuda in "
+"användare också."
+
+#: voteit/multiple_votes/actions.py:53
+msgid "Activate..."
+msgstr "Aktivera…"
+
+#: voteit/multiple_votes/schemas.py:12
+msgid "Short title, used in navigation too"
+msgstr "Korttitel, används i navigation också."
+
+#. Default: Max 20 chars. Something like 'Organisations' or 'Vote power'.
+#. Basically the reason that someone has several votes.
+#: voteit/multiple_votes/schemas.py:13
+msgid "multivotes_schema_title_description"
+msgstr ""
+"Max 20 tecken. T.ex. ”Organisationer” eller ”Röstfördelning”. Något som "
+"förklarar anledningen till att någon har flera röster."
+
+#: voteit/multiple_votes/schemas.py:28
+msgid "I understand the consequences of adding this"
+msgstr "Jag förstår konsekvenserna av att lägga till det här"
+
+#: voteit/multiple_votes/schemas.py:29
+msgid "Confirmation not clicked"
+msgstr "Du behöver bekräfta"
+
+#: voteit/multiple_votes/schemas.py:40
+msgid "Name of voting asignment - like the organisation that this represents"
+msgstr "Namn på rösträtten - t.ex. organisationen detta representerar"
+
+#: voteit/multiple_votes/schemas.py:46
+msgid "Number of votes"
+msgstr "Antal röster"
+
+#: voteit/multiple_votes/schemas.py:47
+msgid "1-500 is a valid number"
+msgstr "1-500 är giltiga nummer"
+
+#: voteit/multiple_votes/schemas.py:53
+msgid "The user assigned"
+msgstr "Ansvarig användare"
+
+#. Default: During ongoing polls, this action isn't allowed. Try again when
+#. polls have closed.
+#: voteit/multiple_votes/utils.py:28
+msgid "access_during_ongoing_not_allowed"
+msgstr ""
+"Under pågående omröstningar så är detta inte tillåtet. Försök igen när "
+"omröstningen stängt."
+
+#: voteit/multiple_votes/resources.py:38 voteit/multiple_votes/resources.py:45
+msgid "MultiVotes"
+msgstr "Flera röster"
+
+#: voteit/multiple_votes/resources.py:112
+msgid "Vote Assignment"
+msgstr "Rösttilldelning"
+
+#: voteit/multiple_votes/resources.py:142
+msgid ""
+"You may not start polls unless you've locked the assignment of votes. See "
+"multivotes."
+msgstr ""
+"Du kan inte starta omröstningar innan du låst röstlängden. Se flera röster-"
+"plugin."
+
+#: voteit/multiple_votes/templates/multivotes.pt:19
+msgid "Add"
+msgstr "Lägg till"
+
+#. Default: Vote assignment open. It's possible to assign users and change
+#. things around. No polls can be started until the vote distribution is
+#. locked.
+#: voteit/multiple_votes/templates/multivotes.pt:24
+msgid "wf_open_description"
+msgstr ""
+"Ändring av rösträtt öppen. Det går att tilldela användare och ändra saker. "
+"Inga omröstningar kan startas innan rösträtten är låst."
+
+#. Default: Vote assignment locked. Polls may be started. If you need to change
+#. vote assignments again, you may open the assignment as long as no polls are
+#. ongoing.
+#: voteit/multiple_votes/templates/multivotes.pt:31
+msgid "wf_locked_description"
+msgstr ""
+"Rösträtt låst. Omröstningar kan startas. Om du behöver ändra rösträtt igen "
+"så kan du öppna tilldelningen här så länge som inga omröstningar pågår."
+
+#: voteit/multiple_votes/templates/multivotes.pt:42
+msgid "Voters:"
+msgstr "Röstberättigade:"
+
+#: voteit/multiple_votes/templates/multivotes.pt:50
+msgid "Votes assigned:"
+msgstr "Röster tilldelade:"
+
+#: voteit/multiple_votes/templates/multivotes.pt:72
+msgid "Name"
+msgstr "Namn"
+
+#: voteit/multiple_votes/templates/multivotes.pt:73
+msgid "Assigned"
+msgstr "Ansvarig"
+
+#: voteit/multiple_votes/templates/multivotes.pt:74
+msgid "Votes"
+msgstr "Röster"
+
+#: voteit/multiple_votes/templates/activate_form.pt:12
+msgid "Warning!"
+msgstr "Varning!"
+
+#. Default: Bad and unexpected thing will happen if you activate this and don't
+#. understand what it does!
+#: voteit/multiple_votes/templates/activate_form.pt:14
+msgid "very_bad_warning_dog_bites"
+msgstr ""
+"Dåliga och oväntade saker händer om du aktiverar detta och inte förstår vad "
+"det gör!"
+
+#. Default: Read through the README-file before proceeding:
+#: voteit/multiple_votes/templates/activate_form.pt:19
+msgid "read_readme_first"
+msgstr "Läs igenom README-filen innan du fortsätter:"

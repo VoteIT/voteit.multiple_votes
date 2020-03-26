@@ -14,3 +14,5 @@ def includeme(config):
     # Views
     config.include('.actions')
     config.include('.views')
+    # Locales
+    config.add_translation_dirs('voteit.multiple_votes:locale/')

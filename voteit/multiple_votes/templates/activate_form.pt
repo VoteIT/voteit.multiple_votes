@@ -4,7 +4,7 @@
   xmlns:tal="http://xml.zope.org/namespaces/tal"
   xmlns:i18n="http://xml.zope.org/namespaces/i18n"
   metal:use-macro="view.macro('arche:templates/master.pt', 'arche:templates/inline.pt')"
-  i18n:domain="Arche">
+  i18n:domain="voteit.multiple_votes">
 <tal:content metal:fill-slot="content">
     <div class="alert alert-danger" role="alert">
         <strong>
