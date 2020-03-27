@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE 1.0\n"
-"POT-Creation-Date: 2020-03-26 15:17+0100\n"
+"POT-Creation-Date: 2020-03-27 13:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,52 +42,77 @@ msgstr ""
 msgid "Enable vote updates"
 msgstr ""
 
-#: ./voteit/multiple_votes/actions.py:42
+#: ./voteit/multiple_votes/actions.py:49
 msgid "Multiple votes"
 msgstr ""
 
-#: ./voteit/multiple_votes/actions.py:43
+#: ./voteit/multiple_votes/actions.py:50
 msgid ""
 "Allow users to have multiple votes. This will change how you're able to "
 "invite users too."
 msgstr ""
 
-#: ./voteit/multiple_votes/actions.py:53
+#: ./voteit/multiple_votes/actions.py:60
 msgid "Activate..."
 msgstr ""
 
-#: ./voteit/multiple_votes/schemas.py:12
+#: ./voteit/multiple_votes/actions.py:67 ./voteit/multiple_votes/views.py:92
+msgid "Create and assign"
+msgstr ""
+
+#: ./voteit/multiple_votes/schemas.py:14
 msgid "Short title, used in navigation too"
 msgstr ""
 
 #. Default: Max 20 chars. Something like 'Organisations' or 'Vote power'.
 #. Basically the reason that someone has several votes.
-#: ./voteit/multiple_votes/schemas.py:13
+#: ./voteit/multiple_votes/schemas.py:15
 msgid "multivotes_schema_title_description"
 msgstr ""
 
-#: ./voteit/multiple_votes/schemas.py:28
+#: ./voteit/multiple_votes/schemas.py:30
 msgid "I understand the consequences of adding this"
 msgstr ""
 
-#: ./voteit/multiple_votes/schemas.py:29
+#: ./voteit/multiple_votes/schemas.py:32
 msgid "Confirmation not clicked"
 msgstr ""
 
-#: ./voteit/multiple_votes/schemas.py:40
+#: ./voteit/multiple_votes/schemas.py:44
 msgid "Name of voting asignment - like the organisation that this represents"
 msgstr ""
 
-#: ./voteit/multiple_votes/schemas.py:46
+#: ./voteit/multiple_votes/schemas.py:50
 msgid "Number of votes"
 msgstr ""
 
-#: ./voteit/multiple_votes/schemas.py:47
+#: ./voteit/multiple_votes/schemas.py:51
 msgid "1-500 is a valid number"
 msgstr ""
 
-#: ./voteit/multiple_votes/schemas.py:53
+#: ./voteit/multiple_votes/schemas.py:57
 msgid "The user assigned"
+msgstr ""
+
+#. Default: Row ${num} - item ${item} error: ${err_msg}
+#: ./voteit/multiple_votes/schemas.py:94
+msgid "colander_csv_error"
+msgstr ""
+
+#: ./voteit/multiple_votes/schemas.py:104
+#, python-format
+msgid "Row ${num} must have 3 elements"
+msgstr ""
+
+#. Default: Paste rows from Excel, Google docs, Libre-office or similar.
+#: ./voteit/multiple_votes/schemas.py:112
+msgid "paste_spreadsheet_text_title"
+msgstr ""
+
+#. Default: Columns must be: Title of organisation, Number of votes, user email
+#. (or blank).
+#: ./voteit/multiple_votes/schemas.py:116
+msgid "paste_spreadsheet_text_description"
 msgstr ""
 
 #. Default: During ongoing polls, this action isn't allowed. Try again when
@@ -109,6 +134,21 @@ msgstr ""
 msgid ""
 "You may not start polls unless you've locked the assignment of votes. See "
 "multivotes."
+msgstr ""
+
+#: ./voteit/multiple_votes/views.py:100
+msgid "Not allowed when assignment is locked. Open it to use this"
+msgstr ""
+
+#: ./voteit/multiple_votes/views.py:104
+msgid "Forbidden"
+msgstr ""
+
+#. Default: Created ${obj_count} objects. ${assign_count} users were assigned
+#. via email. ${not_found_count} email addresses didn't match a registered
+#. user.
+#: ./voteit/multiple_votes/views.py:133
+msgid "created_msg_summary"
 msgstr ""
 
 #: ./voteit/multiple_votes/templates/multivotes.pt:19

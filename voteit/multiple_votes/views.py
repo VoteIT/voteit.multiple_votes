@@ -97,7 +97,7 @@ class CreateAndAssignForm(BaseForm):
         block_during_ongoing_poll(self.context)
         if not self.request.has_permission(ADD_VOTE_ASSIGNMENT, self.context):
             if self.context.wf_state == 'locked':
-                msg = _("Not alled when assignment is locked. Open it to use this")
+                msg = _("Not allowed when assignment is locked. Open it to use this")
                 self.flash_messages.add(msg, type="danger")
                 raise HTTPFound(location=self.request.resource_url(self.context))
             else:

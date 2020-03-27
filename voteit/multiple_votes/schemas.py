@@ -91,7 +91,6 @@ def validate_rows(node, value):
             except colander.Invalid as exc:
                 request = get_current_request()
                 for (k, v) in exc.asdict(translate=request.localizer.translate).items():
-                    # Only one error needed
                     msg = _(
                         "colander_csv_error",
                         default="Row ${num} - item ${item} error: ${err_msg}",
@@ -111,7 +110,7 @@ class VoteAssignmentCreateCSV(colander.Schema):
     csv_items = colander.SchemaNode(
         colander.String(),
         title=_(
-            "paste_spreadsheet_text_description",
+            "paste_spreadsheet_text_title",
             default="Paste rows from Excel, Google docs, Libre-office or similar.",
         ),
         description=_(
