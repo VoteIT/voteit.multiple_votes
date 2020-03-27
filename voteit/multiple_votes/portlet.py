@@ -32,7 +32,10 @@ class MVPollsInline(PollsInline):
         """ Progress bar for all assigned votes vs actual incoming votes.
         """
         mv = self.request.meeting[MEETING_NAMESPACE]
-        response = {"added": len(poll), "total": mv.assigned_votes}
+        vote_count = getattr(poll, '_mv_votes_count', None)
+        if vote_count is None:
+            vote_count = mv.assigned_votes
+        response = {"added": len(poll), "total": vote_count}
         if response["total"] != 0:
             try:
                 response["percentage"] = int(

@@ -145,6 +145,15 @@ def block_starting_polls_with_multivotes_open(context, event):
                 )
 
 
+@subscriber([IPoll, IWorkflowStateChange])
+def save_voters_count_on_poll_close(context, event):
+    if event.new_state == "closed":
+        meeting = find_interface(context, IMeeting)
+        if MEETING_NAMESPACE in meeting:
+            mv = meeting[MEETING_NAMESPACE]
+            context._mv_votes_count = mv.total_votes
+
+
 @subscriber([IVoteAssignment, IObjectAddedEvent])
 @subscriber([IVoteAssignment, IObjectUpdatedEvent])
 def update_cached_totals_new_count(context, event):
