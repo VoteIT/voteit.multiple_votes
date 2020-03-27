@@ -32,6 +32,13 @@ def multivotes_nav(context, request, va, **kw):
         multivotes.title,
     )
 
+@only_when_active
+def create_and_assign_link(context, request, va, **kw):
+    multivotes = request.meeting[MEETING_NAMESPACE]
+    return """<li><a href="%s">%s</a></li>""" % (
+        request.resource_path(multivotes, va.kwargs['view_name']),
+        request.localizer.translate(va.title),
+    )
 
 def includeme(config):
     config.add_view_action(
@@ -52,6 +59,13 @@ def includeme(config):
         "activate",
         title=_("Activate..."),
         view_name="_activate_multivotes",
+    )
+    config.add_view_action(
+        create_and_assign_link,
+        "control_panel_multivotes",
+        "create_assignments",
+        title=_("Create and assign"),
+        view_name="create_assignments",
     )
     config.add_view_action(multivotes_nav, "nav_meeting", "multivotes")
     config.add_view_action(multivotes_nav, "control_panel_multivotes", "multivotes_page")
