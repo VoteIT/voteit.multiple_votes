@@ -82,6 +82,16 @@ def redirect_parent(context, request):
     )
 
 
+@view_config(context=IVoteAssignment, name="clear_assigned", permission=security.EDIT)
+class ClearAssignmentView(BaseView):
+    """ Clear assignment and redirect. """
+
+    def __call__(self):
+        self.context.userid_assigned = None
+        self.flash_messages.add(_("Cleared assigned user from ${title}", mapping={'title': self.context.title}))
+        return redirect_parent(self.context, self.request)
+
+
 @view_config(
     name="create_assignments",
     context=IMultiVotes,

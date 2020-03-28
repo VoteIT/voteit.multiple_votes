@@ -72,13 +72,14 @@
                 <th i18n:translate="">Name</th>
                 <th i18n:translate="">Assigned</th>
                 <th i18n:translate="">Votes</th>
+                <th tal:condition="request.is_moderator and context.wf_state == 'open'"></th>
             </tr>
             </thead>
             <tbody>
             <tal:iter repeat="va context.get_sorted_values()">
-                <tr>
+                <tr tal:define="can_edit view.can_edit_obj(va)">
                     <td>
-                        <a tal:omit-tag="not view.can_edit_obj(va)"
+                        <a tal:omit-tag="not can_edit" role="button"
                            href="${request.resource_url(va, 'edit')}">
                             ${va.title}
                         </a>
@@ -86,11 +87,23 @@
 
                     <td tal:condition="va.userid_assigned">
                         <tal:user replace="structure request.creators_info([va.userid_assigned], portrait=False)"/>
+                        <a tal:condition="can_edit"
+                           class="text-default hidden-print"
+                           href="${request.resource_url(va, 'clear_assigned')}">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
                     </td>
                     <td tal:condition="not va.userid_assigned">
                     </td>
                     <td>
                         ${va.votes}
+                    </td>
+                    <td tal:condition="can_edit" class="text-right">
+                        <a class="btn btn-default btn-xs"
+                           href="${request.resource_url(va, 'delete')}">
+                            <span class="glyphicon glyphicon-remove text-danger"></span>
+                        </a>
+
                     </td>
                 </tr>
             </tal:iter>
