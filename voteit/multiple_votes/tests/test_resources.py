@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 import unittest
 
+from arche.testing import barebone_fixture
 from pyramid import testing
 from voteit.core.models.meeting import Meeting
 from voteit.core.security import ROLE_VOTER
@@ -50,9 +51,11 @@ class MultiVotesTests(unittest.TestCase):
 
     def test_vote_count_subscriber(self):
         self.config.include('arche.testing')
+        self.config.include('arche.testing.catalog')
         self.config.include('arche.testing.workflow')
         self.config.include('voteit.multiple_votes.resources')
-        m = Meeting()
+        root = barebone_fixture()
+        root['m'] = m = Meeting()
         m[MEETING_NAMESPACE] = obj = self._cut()
         self.assertEqual(0, obj.total_votes)
         obj['a1'] = a1 = self._VA(userid_assigned='a', votes=1)
@@ -68,9 +71,11 @@ class MultiVotesTests(unittest.TestCase):
 
     def test_voter_count_subscriber(self):
         self.config.include('arche.testing')
+        self.config.include('arche.testing.catalog')
         self.config.include('arche.testing.workflow')
         self.config.include('voteit.multiple_votes.resources')
-        m = Meeting()
+        root = barebone_fixture()
+        root['m'] = m = Meeting()
         m[MEETING_NAMESPACE] = obj = self._cut()
         self.assertEqual(0, obj.total_voters)
         obj['a1'] = a1 = self._VA(userid_assigned='a', votes=1)
@@ -92,9 +97,11 @@ class MultiVotesTests(unittest.TestCase):
 
     def test_recheck_voters(self):
         self.config.include('arche.testing')
+        self.config.include('arche.testing.catalog')
         self.config.include('arche.testing.workflow')
         self.config.include('voteit.multiple_votes.resources')
-        m = Meeting()
+        root = barebone_fixture()
+        root['m'] = m = Meeting()
         m[MEETING_NAMESPACE] = obj = self._cut()
         lr = m.local_roles
         lr.add('someone', ROLE_VOTER)
