@@ -2,6 +2,7 @@ from arche.models.workflow import Workflow
 from voteit.core import security
 
 from voteit.multiple_votes import _
+from voteit.multiple_votes.permissions import ADD_VOTE_ASSIGNMENT
 
 
 class LockAssignmentWorkflow(Workflow):
@@ -19,7 +20,7 @@ class LockAssignmentWorkflow(Workflow):
         open_name = "%s:open" % cls.name
         open_acl = aclreg.new_acl(open_name, title=_("Open"))
         open_acl.add(security.ROLE_ADMIN, security.ALL_PERMISSIONS)
-        open_acl.add(security.ROLE_MODERATOR, [security.MODERATE_MEETING, security.EDIT])
+        open_acl.add(security.ROLE_MODERATOR, [security.MODERATE_MEETING, security.EDIT, ADD_VOTE_ASSIGNMENT])
         open_acl.add(security.ROLE_VIEWER, [security.VIEW])
         # Locked
         locked_name = "%s:locked" % cls.name
